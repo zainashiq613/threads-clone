@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Loader from './components/common/Loader';
+import Header from './components/common/Header';
+import Home from './pages/Protected/Home';
+import Search from './pages/Protected/Search';
+import Error from './pages/Error';
+import Register from './pages/Register';
+import { Box } from '@mui/material';
+import ProtectedLayout from './pages/Protected/ProtectedLayout';
+import ProfileLayout from './pages/Protected/profile/ProfileLayout';
+import Threads from './pages/Protected/profile/Threads';
+import Replies from './pages/Protected/profile/Replies';
+import Repost from './pages/Protected/profile/Repost';
+import SinglePost from './pages/Protected/SinglePost';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Box minHeight={'100vh'}>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={<ProtectedLayout />}>
+              <Route exact path="" element={<Home />} />
+              <Route exact path="post/:id" element={<SinglePost />} />
+              <Route exact path="search" element={<Search />} />
+              <Route exact path="profile" element={<ProfileLayout />}>
+                <Route exact path="threads/:id" element={<Threads />} />
+                <Route exact path="replies/:id" element={<Replies />} />
+                <Route exact path="reposts/:id" element={<Repost />} />
+              </Route>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </Box>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
