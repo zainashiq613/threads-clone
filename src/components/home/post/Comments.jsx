@@ -41,7 +41,7 @@ function Comments() {
       </Stack>
       <Menu
         anchorEl={''}
-        open={true}
+        open={false}
         onClose={handleClose}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         transformOrigin={{ vertical: 'bottom', horizontal: 'right' }}
