@@ -15,7 +15,7 @@ function PostTwo() {
             <Typography variant="h6" fontSize={_300 ? '1rem' : '0.8rem'} fontWeight={'bold'}>
               Zain Ashiq
             </Typography>
-            <Link to={'/post/2'}>
+            <Link to={'/post/2'} className="link">
               <Typography
                 variant="h5"
                 fontSize={_700 ? '1.2rem' : _400 ? '1rem' : _300 ? '0.9rem' : '0.8rem'}

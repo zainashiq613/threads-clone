@@ -1,10 +1,9 @@
 import { Avatar, Button, Chip, Stack, Typography, useMediaQuery } from '@mui/material';
-import React from 'react';
 import { FaInstagram } from 'react-icons/fa6';
 import { Link, Outlet } from 'react-router-dom';
 
 function ProfileLayout() {
-  const _700 = useMediaQuery('(min-width:700px)');
+  const _700 = useMediaQuery('(min-width:850px)');
   const _500 = useMediaQuery('(min-width:500px)');
   const _300 = useMediaQuery('(min-width:300px)');
   return (
@@ -67,7 +66,7 @@ function ProfileLayout() {
         mx={'auto'}
         borderBottom={'2px solid gray'}
         fontSize={_500 ? '1.2rem' : _300 ? '1.1rem' : '0.9rem'}
-        width={'800px'}
+        width={_700 ? '800px' : '90%'}
       >
         <Link to={'/profile/threads/1'} className="link">
           Threads
