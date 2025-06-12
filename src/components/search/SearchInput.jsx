@@ -1,8 +1,9 @@
-import { InputAdornment, TextField } from '@mui/material';
+import { InputAdornment, TextField, useMediaQuery } from '@mui/material';
 import React from 'react';
 import { FaSearch } from 'react-icons/fa';
 
 function SearchInput() {
+  const _700 = useMediaQuery('(min-width=700px)');
   return (
     <>
       <TextField

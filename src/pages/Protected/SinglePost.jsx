@@ -1,8 +1,10 @@
 import { Stack, TextField } from '@mui/material';
 import Post from '../../components/home/Post';
 import Comments from '../../components/home/post/Comments';
+import { useState } from 'react';
 
 function SinglePost() {
+  const [comment, setComment] = useState('');
   return (
     <>
       <Stack flexDirection={'column'} my={5} gap={2}>
@@ -11,6 +13,10 @@ function SinglePost() {
           <Comments />
         </Stack>
         <TextField
+          value={comment}
+          onChange={(e) => {
+            setComment(e.target.value);
+          }}
           variant="outlined"
           autoFocus
           placeholder="Comment here...."
